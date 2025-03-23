@@ -1,10 +1,10 @@
 import streamlit as st
 import time
-import pickle
 import string
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
+import fickling
 
 # Download nltk resources
 nltk.download('punkt')
@@ -39,8 +39,8 @@ def transform_text(text):
 
 
 # Load model and vectorizer
-tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
-model = pickle.load(open('model.pkl', 'rb'))
+tfidf = fickling.load(open('vectorizer.pkl', 'rb'))
+model = fickling.load(open('model.pkl', 'rb'))
 
 # Page Layout
 st.set_page_config(
