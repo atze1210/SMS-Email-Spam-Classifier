@@ -1,10 +1,10 @@
 import streamlit as st
 import time
-import pickle
 import string
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
+import fickling
 
 # Ensure required NLTK resources are downloaded
 nltk.data.path.append('/app/nltk_data')
@@ -41,8 +41,8 @@ def transform_text(text):
 
 # Load model and vectorizer (make sure these files exist in the same directory)
 try:
-    tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
-    model = pickle.load(open('model.pkl', 'rb'))
+    tfidf = fickling.load(open('vectorizer.pkl', 'rb'))
+    model = fickling.load(open('model.pkl', 'rb'))
 except FileNotFoundError as e:
     st.error(f"Model or vectorizer file not found: {e}")
     st.stop()
